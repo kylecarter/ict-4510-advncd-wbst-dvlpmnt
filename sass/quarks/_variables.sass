@@ -1,0 +1,75 @@
+$page: 1200
+$sidebar: 540
+$content: 660
+$viewport: 1440
+$container: $page * 1px
+$matte: $viewport * 1px
+$content: $page - $sidebar
+$scale: ( 0 479px 599px 767px 991px 1199px 1439px )
+$susy: ('columns': susy-repeat( 12 ), 'gutters': 0.25, 'spread': 'narrow', 'container-spread': 'narrow',)
+
+// Media queries to target specific screen sizes
+$screen-phone-only: ( max-width nth( $scale, 2 ) ) // iPhone 6, Pixel 2, Samsung Galaxy S9
+$screen-phoneplus-only: nth( $scale, 2 ) ( nth( $scale, 3 ) + 1 ) // iPhone 6+, Pixel 2+, Samsung Galaxy S9+
+$screen-phablet-only: nth( $scale, 4 ) ( nth( $scale, 5 ) + 1 ) // iPad portrait, 7 inch Android tablets
+$screen-tablet-only: nth( $scale, 5 ) ( nth( $scale, 6 ) + 1 ) // iPad Pro, iPad landscape, Surface, Samsung Galaxy Tab, Nvidia Shield, Sony Xperia Tablet
+$screen-laptop-only: nth( $scale, 6 ) ( nth( $scale, 7 ) + 1 ) // 15'' laptop monitors
+$screen-desktop-only: nth( $scale, 7 ) + 1 // 17'' laptop monitors and desktop monitors, after matte gets applied
+
+// Device screen size and up
+$screen-phone-up: nth( $scale, 2 ) + 1
+$screen-phoneplus-up: nth( $scale, 3 ) + 1
+$screen-phablet-up: nth( $scale, 4 ) + 1 
+$screen-tablet-up: nth( $scale, 5 ) + 1
+$screen-laptop-up: nth( $scale, 6 ) + 1
+$screen-desktop-up: nth( $scale, 7 ) + 1
+
+// Device screen size and down
+$screen-phone-down: ( max-width nth( $scale, 2 ) )
+$screen-phoneplus-down: ( max-width nth( $scale, 3 ) )
+$screen-phablet-down: ( max-width nth( $scale, 4 ) )
+$screen-tablet-down: ( max-width nth( $scale, 5 ) )
+$screen-laptop-down: ( max-width nth( $scale, 6 ) )
+$screen-desktop-down: ( max-width nth( $scale, 7 ) )
+
+$font-family-serif: 'Robot Slab', $font-stack-hoefler-text
+$font-family-sans-serif: 'Roboto', $font-stack-helvetica
+$font-family-base: $font-family-sans-serif
+$headings-font-family: $font-family-serif
+$font-family-display: 'Josefin Slab', $font-stack-system
+
+$typography-base: 16
+$font-size-base: $typography-base * 1px
+$em-base: $font-size-base
+$line-height-base: ( $typography-base + 12.8 ) / $typography-base
+$font-size-xlarge: $font-size-base + 4
+$font-size-large: $font-size-base + 2
+$font-size-small: $font-size-base - 2
+$font-size-xsmall: $font-size-base - 4
+$letter-spacing-base: ( $typography-base / 7 ) * 1px
+
+$font-weight-100: 100
+$font-weight-200: 200
+$font-weight-300: 300
+$font-weight-400: 400
+$font-weight-500: 500
+$font-weight-600: 600
+$font-weight-700: 700
+$font-weight-800: 800
+$font-weight-900: 900
+
+$border-radius-base: 4px
+$border-radius-small: $border-radius-base - 1
+$border-radius-large: $border-radius-base + 2
+
+$padding-base-vertical: ( $typography-base - 8 ) * 1px
+$padding-base-horizontal: ( ( $typography-base - 8 ) * 2 ) * 1px
+
+$input-height-base: 42px
+$input-border-radius: $border-radius-base
+
+$btn-font-weight: $font-weight-600
+$btn-border-radius-base: $border-radius-small - 1
+$btn-letter-spacing: $letter-spacing-base
+
+$narrow-sans: $font-family-display

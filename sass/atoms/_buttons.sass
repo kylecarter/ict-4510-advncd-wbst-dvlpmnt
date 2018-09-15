@@ -1,0 +1,48 @@
+%btn
+    @extend button !optional
+    font-size: 100%
+    font-weight: 700
+    color: $text-color
+    text-decoration: none
+    background-color: $white
+    text-transform: lowercase
+    letter-spacing: emify( 0 )
+    font-family: $font-family-base
+    border: 2px solid $border-color
+
+    &:hover, &:focus, &:active
+        outline: 0
+        box-shadow: none
+        color: $text-color
+        background-color: $tertiary
+        border-color: $border-color
+    
+    &-small
+      font-size: emify( 14px )
+    
+    &-large
+      font-size: emify( $font-size-large )
+    
+    &-swol
+      padding: emify( $padding-base-vertical * 2 ) emify( $padding-base-horizontal * 2 )
+    
+    &-puny
+      padding: emify( $padding-base-vertical / 2 ) emify( $padding-base-horizontal / 2 )
+    
+    &-square
+      border-radius: 0
+    
+    &-circle
+      border-radius: 100%
+
+    &-primary
+        color: $tertiary
+        border-color: $text-color
+        background-color: $text-color
+
+        &:hover, &:focus, &:active
+            outline: 0
+            box-shadow: none
+            color: $primary
+            border-color: $text-color
+            background-color: $text-color

@@ -10,13 +10,12 @@ export default class HEAD extends React.Component {
     }
 
     render() {
-        const { title, description, keywords, canonical } = this.props;
+        const { title, description, keywords } = this.props;
         return (
             <Head>
                 <title>{ title } | Kyle A. Carter | ICT 4510 Advanced Website Design and Management</title>
                 <meta name="description" content={description || ''} />
                 <meta name="keywords" content={keywords || ''} />
-                <link rel="canonical" href={canonical || ''} />
             </Head>
         );
     }

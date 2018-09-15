@@ -1,2 +1,31 @@
+@import 'sass/stylesheet'
+
+.container
+    +container()
+
+.marquee
+    color: $white
+    padding: 9% 0
+    background: $text-color url('/static/banner.JPG') no-repeat center
+    background-size: cover
+
 .title
-    color: green
+    color: inherit
+    @extend %h3
+    margin: 0
+
+.sidebar
+
+    &Block
+        background-color: $white
+        border-radius: $border-radius-base
+        padding: emify($padding-base-horizontal)
+
+.img
+
+    &Avatar
+        @extend %img-responsive
+        @extend %img-round
+
+.listMeta
+    @extend %list-unstyled

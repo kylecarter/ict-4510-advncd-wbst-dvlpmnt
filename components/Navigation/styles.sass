@@ -1,0 +1,32 @@
+@import 'sass/components'
+
+.nav
+    background-color: rgba($text-color, 0.6)
+    +position(fixed, null null null null)
+    display: block
+    color: $white
+    width: 100%
+
+.navContainer
+    +container()
+
+.listMenu
+    @extend %list-unstyled
+    font-size: emify( 20px )
+    color: $white
+
+    a
+        color: inherit
+
+    > li
+        float: right
+        margin: 0 emify( 10px )
+
+        &:first-child
+            margin-left: 0
+        
+        &:last-child
+            margin-right: 0
+
+    > .branding
+        float: left

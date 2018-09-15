@@ -1,0 +1,14 @@
+@function ununit($number)
+  @return $number / ($number * 0 + 1)
+
+@function emify($size, $base: $em-base, $measure: 'em')
+  @if not unitless($size)
+    $size: ununit($size)
+
+  @if not unitless($base)
+    $base: ununit($base)
+
+  @return unquote(($size / $base) + $measure)
+
+@function font-awesome($size: 1em, $library: 'Font Awesome\\ 5 Free')
+  @return 700 normal normal #{ $size }/1 #{ $library }
