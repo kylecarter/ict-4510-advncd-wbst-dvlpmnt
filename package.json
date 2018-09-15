@@ -1,0 +1,41 @@
+{
+  "name": "ict-4510-advncd-wbst-dvlpmnt",
+  "version": "1.0.0",
+  "description": "School project.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kylecarter/ict-4510-advncd-wbst-dvlpmnt.git"
+  },
+  "keywords": [
+    "react",
+    "next",
+    "sass",
+    "bourbon"
+  ],
+  "author": "Kyle A. Carter",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/kylecarter/ict-4510-advncd-wbst-dvlpmnt/issues"
+  },
+  "homepage": "https://github.com/kylecarter/ict-4510-advncd-wbst-dvlpmnt#readme",
+  "dependencies": {
+    "@zeit/next-sass": "^0.2.0",
+    "Bitters": "https://github.com/thoughtbot/bitters/archive/v1.8.0.tar.gz",
+    "autoprefixer": "^9.1.5",
+    "bourbon": "^5.1.0",
+    "breakpoint-sass": "^2.7.1",
+    "css-reset-and-normalize-sass": "^0.1.2",
+    "cssnano": "^4.1.0",
+    "next": "^6.1.2",
+    "node-sass": "^4.9.3",
+    "react": "^16.5.1",
+    "react-dom": "^16.5.1",
+    "susy": "^3.0.5"
+  }
+}
