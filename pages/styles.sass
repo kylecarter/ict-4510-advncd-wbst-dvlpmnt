@@ -3,9 +3,19 @@
 .container
     +container()
 
+.wrapper
+
+    +breakpoint( $screen-phablet-up )
+        display: grid
+        align-items: stretch
+        justify-items: stretch
+        grid-template-rows: auto
+        grid-column-gap: susy-gutter( of 12 )
+        grid-template-columns: susy-span( 3 of 12 ) susy-span( 9 of 12 )
+
 .marquee
     color: $white
-    padding: 9% 0
+    padding: 12% 0
     background: $text-color url('/static/banner.JPG') no-repeat center
     background-size: cover
 
@@ -15,12 +25,22 @@
     margin: 0
 
 .sidebar
+    font-size: emify(14px)
+    line-height: 1.6
+
+    +breakpoint($screen-phablet-up)
+        +position(relative, -60px null null null)
 
     &Block
+        width: 100%
+        margin: 21px 0
         background-color: $white
         border-radius: $border-radius-base
         padding: emify($padding-base-horizontal)
 
+        &-first-child
+            margin-top: 0
+    
 .img
 
     &Avatar
@@ -29,3 +49,46 @@
 
 .listMeta
     @extend %list-unstyled
+
+.content
+    margin: 21px 0
+
+    +breakpoint($screen-tablet-up)
+        padding: emify(10px)
+        background-color: $white
+
+.listAssignments
+    @extend %list-unstyled
+
+    > li
+        border-radius: $border-radius-base
+        border: thin solid $border-color
+        background-color: $white
+        margin: emify(21px) 0
+        padding: emify(10px)
+
+
+        +breakpoint($screen-tablet-up)
+            float: left
+            max-width: 48%
+            margin: emify(21px) emify( 10px )
+
+            &:nth-child(odd)
+                margin-left: 0
+            
+            &:nth-child(even)
+                margin-right: 0
+
+.ico
+
+    &Users
+        @extend %ico
+        @extend %ico-user
+    
+    &Map
+        @extend %ico
+        @extend %ico-map
+    
+    &Link
+        @extend %ico
+        @extend %ico-link

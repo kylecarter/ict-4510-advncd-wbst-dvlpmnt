@@ -28,7 +28,7 @@ export default class Home extends React.Component {
                 <header className={styles.marquee} role="banner"><div className={styles.container}>
                     <h1 className={styles.title}>Kyle A. Carter | ICT 4510 Advanced Website Design and Management</h1>
                 </div></header>
-                <div id="content" className={styles.container}>
+                <div id="content" className={[styles.container, styles.wrapper].join(' ')}>
                     <aside className={styles.sidebar} role="complementary">
                         <div className={styles.sidebarBlock}>
                             <img className={[styles.imgAvatar].join(' ')} src="/static/kylecarter_profile_web.JPG" alt="Kyle Carter Headshot" />
@@ -47,7 +47,14 @@ export default class Home extends React.Component {
                     </aside>
                     <main className={styles.content}>
                         <article role="article">
-
+                            <h2>Assignments</h2>
+                            <ul className={styles.listAssignments}>
+                                <li>
+                                    <h3>Assignment One</h3>
+                                    <p>Familiarize yourselves with the HTTP protocol, Web browsers and Web servers. Review HTML and CSS concepts.</p>
+                                    <Link href="/assignments/1"><a rel="bookmark">Go to assignment.</a></Link>
+                                </li>
+                            </ul>
                         </article>
                     </main>
                 </div>

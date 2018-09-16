@@ -34,11 +34,14 @@
     "css-reset-and-normalize-sass": "^0.1.2",
     "cssnano": "^4.1.0",
     "jquery": "^3.3.1",
-    "jquery-validate": "^2.0.0",
+    "jquery-validation": "^1.18.0",
     "next": "^6.1.2",
     "node-sass": "^4.9.3",
+    "postcss": "^7.0.2",
+    "postcss-cli": "^6.0.0",
     "react": "^16.5.1",
     "react-dom": "^16.5.1",
-    "susy": "^3.0.5"
+    "susy": "^3.0.5",
+    "underscore": "^1.9.1"
   }
 }

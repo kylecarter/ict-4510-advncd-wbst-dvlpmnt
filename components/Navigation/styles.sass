@@ -3,6 +3,7 @@
 .nav
     background-color: rgba($text-color, 0.6)
     +position(fixed, null null null null)
+    z-index: 100000
     display: block
     color: $white
     width: 100%
@@ -20,13 +21,10 @@
 
     > li
         float: right
-        margin: 0 emify( 10px )
+        margin: 0 emify( 6px )
 
         &:first-child
             margin-left: 0
-        
-        &:last-child
-            margin-right: 0
 
     > .branding
         float: left

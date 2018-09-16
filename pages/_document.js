@@ -12,7 +12,7 @@ export default class MyDocument extends Document {
         return (
             <html>
                 <Head>
-                    <meta name="viewport" content="width=device-width, initial-scale=1" />
+                    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
                     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
                     <meta name="robots" content="INDEX,FOLLOW" />
                     <meta name="HandheldFriendly" content="true" />
@@ -21,11 +21,11 @@ export default class MyDocument extends Document {
                     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous" />
                     <link rel="stylesheet" href="/_next/static/style.css" />
                 </Head>
-                <body>
+                <body><div id="page-content">
                     <Navigation />
                     <Main />
+                    <Footer /></div>
                     <NextScript />
-                    <Footer />
                 </body>
             </html>
         )
