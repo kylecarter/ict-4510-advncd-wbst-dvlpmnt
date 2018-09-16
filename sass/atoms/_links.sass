@@ -1,0 +1,11 @@
+%lnk
+    color: $link-color
+
+    &:hover, &:focus, &:active
+        color: $link-hover-color
+        box-shadow: none
+        outline: 0
+
+a
+    @extend %lnk
+    text-decoration: none

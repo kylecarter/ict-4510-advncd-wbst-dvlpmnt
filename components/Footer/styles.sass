@@ -1,0 +1,44 @@
+@import 'sass/components'
+
+.footer
+    display: block
+    color: $white
+
+    h1, h2, h3, h4, h5, h6, a
+        color: inherit
+
+    &Containter
+        +container()
+
+    &Top
+        background-color: $text-color
+        padding: 54px 0
+
+        h2
+            @extend %h4
+
+            +breakpoint($screen-phoneplus-up)
+
+    &Bottom
+        background-color: $black
+        padding: 54px
+
+        h6
+            margin: 0
+            @extend %h6
+
+.social
+
+    &Title
+
+        +breakpoint($screen-phoneplus-up)
+            float: left
+            max-width: 48%
+            margin: 0 1% 0 0
+
+    &Links
+        @extend %list-inline
+
+        +breakpoint($screen-phoneplus-up)
+            float: left
+            max-width: 48%

@@ -1,0 +1,24 @@
+@import 'sass/components'
+
+.form
+
+    &Item
+        +position(relative, null null null null)
+        margin: emify(10px) auto
+    
+    &Error
+        padding: emify(10px)
+        border: thin solid $danger
+        background-color: lighten($danger, 48%)
+
+.labelError
+    color: $danger
+
+.label-display
+
+    &-hidden
+        +position( absolute, 0 null null 0 )
+        clip: rect(1px, 1px, 1px, 1px)
+        text-indent: 1000em
+        overflow: hidden
+        +size( 0 )

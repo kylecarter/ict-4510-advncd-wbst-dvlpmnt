@@ -1,0 +1,90 @@
+// Node Modules
+@import 'components'
+@import 'css-reset-and-normalize-sass/scss/reset-and-normalize'
+@import 'Bitters/core/base'
+
+html, body
+  font: normal normal normal #{$font-size-base}/#{$line-height-base} $font-family-base
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+  background-color: $matte-bg
+  border-color: $border-color
+  box-sizing: border-box
+  font-smooth: always
+  color: $text-color
+  padding: 0
+  margin: 0
+
+  *
+    &, &:after, &:before
+      box-sizing: border-box
+
+body > div
+  display: flex
+  flex-direction: column
+
+  > #__next
+    flex: 1
+
+h1, h2, h3, h4, h5, h6
+  font-family: $headings-font-family
+  color: $quaternary
+  font-weight: 700
+
+p, li, td, tr, input, label, textarea, select, blockquote
+  font-size: 100%
+
+p, blockquote
+  margin: 0 0 1.25rem
+
+a[href]
+  word-break: break-word
+
+ul, ol, dl
+    margin-left: 1.125em
+    margin-bottom: 1rem
+
+    > li, dt, dd
+        padding-left: 0.125em
+        margin-bottom: 0.25rem
+
+ul
+    list-style-type: disc
+
+    > li
+        list-style-type: disc
+
+ol
+    list-style-type: decimal
+
+    > li
+        list-style-type: decimal
+
+nav
+
+    ol, ul
+        list-style-type: none
+        padding: 0
+        margin: 0
+
+        > li
+            list-style-type: none
+            padding: 0
+            margin: 0
+
+.sr-only, .visually-hidden
+  +position( absolute, 0 null null 0 )
+  clip: rect(1px, 1px, 1px, 1px)
+  text-indent: 1000em
+  overflow: hidden
+  +size( 0 )
+
+.js
+  
+  .js-hidden
+    display: none
+
+.no-js
+
+  .no-js-hidden
+    display: none

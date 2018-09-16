@@ -1,0 +1,97 @@
+%h1
+  font-size: emify( 54px )
+
+  +breakpoint( $screen-tablet-down )
+    font-size: emify( 24px )
+
+%h2
+  font-size: emify( 40px )
+
+  +breakpoint( $screen-tablet-down )
+    font-size: emify( 22px )
+
+%h3
+  font-size: emify( 29px )
+
+  +breakpoint( $screen-tablet-down )
+    font-size: emify( 20px )
+
+%h4
+  font-size: emify( 22px )
+
+  +breakpoint( $screen-tablet-down )
+    font-size: emify( 18px )
+
+%h5
+  font-size: emify( 18px )
+
+  +breakpoint( $screen-tablet-down )
+    font-size: emify( 16px )
+
+%h6
+  font-size: emify( 16px )
+
+%text
+
+  &-center
+    text-align: center
+
+  &-left
+    text-align: left
+
+  &-right
+    text-align: right
+
+  &-uppercase
+    text-transform: uppercase
+
+  &-capitalize
+    text-transform: capitalize
+
+  &-lowercase
+    text-transform: lowercase
+
+  &-underline
+    text-decoration: underline
+  
+  &-small
+    font-size: emify( 14px )
+
+  &-large
+    font-size: emify( 18px )
+
+  &-xlarge
+    font-weight: 600
+    font-size: emify( 20px )
+  
+  &-danger
+    color: $danger
+  
+  &-muted
+    color: $muted
+  
+  &-success
+    color: $success
+  
+  &-info
+    color: $info
+  
+  &-warning
+    color: $warning
+
+%block
+
+  &-center
+    text-align: center
+    display: block
+    margin: 0 auto
+
+  &-left
+    margin: 0 auto 0 0
+    text-align: left
+    display: block
+
+  &-right
+    margin: 0 0 0 auto
+    text-align: right
+    display: block

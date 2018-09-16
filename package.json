@@ -2,11 +2,11 @@
   "name": "ict-4510-advncd-wbst-dvlpmnt",
   "version": "1.0.0",
   "description": "School project.",
-  "main": "index.js",
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "postinstall": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -27,15 +27,21 @@
   "dependencies": {
     "@zeit/next-sass": "^0.2.0",
     "Bitters": "https://github.com/thoughtbot/bitters/archive/v1.8.0.tar.gz",
+    "animate-sass": "^0.8.2",
     "autoprefixer": "^9.1.5",
     "bourbon": "^5.1.0",
     "breakpoint-sass": "^2.7.1",
     "css-reset-and-normalize-sass": "^0.1.2",
     "cssnano": "^4.1.0",
+    "jquery": "^3.3.1",
+    "jquery-validation": "^1.18.0",
     "next": "^6.1.2",
     "node-sass": "^4.9.3",
+    "postcss": "^7.0.2",
+    "postcss-cli": "^6.0.0",
     "react": "^16.5.1",
     "react-dom": "^16.5.1",
-    "susy": "^3.0.5"
+    "susy": "^3.0.5",
+    "underscore": "^1.9.1"
   }
 }
