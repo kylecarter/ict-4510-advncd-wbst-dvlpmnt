@@ -6,7 +6,7 @@ import Link from 'next/link'
 // Styles
 import styles from './styles.sass'
 
-export default ()=> (<nav className={styles.nav}><div className={styles.navContainer}>
+export default ()=> (<nav id="nav" className={styles.nav}><div className={styles.navContainer} role="navigation">
     <ul className={styles.listMenu}>
         <li className={styles.branding}><Link href="/"><a className="fas fa-home" rel="bookmark"><span className="sr-only">Home</span></a></Link></li>
         <li><Link href="https://github.com/kylecarter"><a className="fab fa-github-alt" rel="bookmark"><span className="sr-only">GitHub</span></a></Link></li>
