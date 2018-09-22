@@ -7,7 +7,7 @@ import Link from 'next/link'
 import styles from './styles.sass'
 
 export default () => {
-    return (<footer className={styles.footer}>
+    return (<footer id="footer" className={styles.footer} role="contentinfo">
         <nav className={styles.footerTop}><div className={styles.footerContainter}>
             <h2 className={styles.socialTitle}>Connect with Kyle</h2>
             <ul className={styles.socialLinks}>

@@ -16,9 +16,12 @@ export default class Button extends React.Component {
     }
 
     render() {
-        const { attributes } = this.state;
+        const { attributes, presentation } = this.state;
+        let attrs = _.extend({
+            className: styles[presentation]
+        }, attributes);
         return (<div className={[styles.formItem, styles.formButton].join(' ')}>
-            <input {...attributes} />
+            <input {...attrs} />
         </div>)
     }
 }

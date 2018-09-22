@@ -22,7 +22,9 @@ export default class One extends React.Component {
         this.state = {
             errors: ''
         }
-        this.submit = this.submit.bind(this)
+        this.submit = this.submit.bind(this);
+        this.get_values = this.get_values.bind(this);
+        this.show_values = this.show_values.bind(this);
     }
 
     componentDidMount() {
@@ -39,8 +41,6 @@ export default class One extends React.Component {
                 return data;
             }
         }
-
-        document.getElementById('assignment-one-form').addEventListener('submit', this.submit )
     }
 
     render() {
@@ -48,7 +48,7 @@ export default class One extends React.Component {
         return(<div>
             <HEAD {...META}/>
             <main className={styles.content}>
-                <form method="post" id="assignment-one-form" className={styles.form}>
+                <form method="post" id="assignment-one-form" className={styles.form} onSubmit={this.submit} onChange={this.submit}>
                     <Textfield err={/first_name/g.test(errors)} label='First Name' label_display='visible' name='first_name' attributes={{
                         type: 'text',
                         required: 'required',
@@ -77,11 +77,12 @@ export default class One extends React.Component {
                         autoComplete: 'tel',
                         className: [styles.formTextfield].join(' ')
                     }} />
-                    <Button attributes={{
+                    <Button presentation='btnPrimary' attributes={{
                         type: 'submit',
                         value: 'Submit',
-                        form: 'assignment-one-form',
-                        className: [styles.btnPrimary].join(' ')
+                        onClick: this.submit,
+                        onTouchEnd: this.submit,
+                        form: 'assignment-one-form'
                     }} />
                 </form>
             </main>
@@ -89,9 +90,11 @@ export default class One extends React.Component {
     }
 
     submit( e ) {
+        e.preventDefault();
+        const form = document.getElementById('assignment-one-form');
         const params = (()=>{
             let obj = {};
-            Array.prototype.slice.call(e.target.querySelectorAll('input')).forEach((element)=> {
+            Array.prototype.slice.call(form.querySelectorAll('#assignment-one-form input')).forEach((element)=> {
                 if (!/(?:submit|reset|button)/g.test(element.type)) {
                     obj[element.name] = element.getAttributes();
                     obj[element.name].value = element.value;
@@ -99,31 +102,66 @@ export default class One extends React.Component {
             });
             return obj;
         })();
+        if (e.type != 'change') this.show_values(form, this.get_values(params));
 
         let errors = '';
         for( let key in params) {
-            let element = params[key];
-            if (element.value === '' && element.required) {
-                errors += element.name + ' ';
+            let param = params[key];
+            if (param.value.trim() === '' && param.hasOwnProperty('required')) {
+                errors += param.name + ' ';
             }
-            if (element.type === 'email') {
-                if (!/^[a-z]+@[a-z]+\.[a-z]+$/g.test(element.value)) {
-                    errors += element.name + ' ';
+            if (param.type === 'email') {
+                if (!/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/g.test(param.value.trim())) {
+                    errors += param.name + ' ';
                 }
             }
-            if (element.type === 'tel') {
-                if (/^(?:(?:\+|011\s)(9[976]\d|8[987530]\d|6[987]\d|5[90]\d|42\d|3[875]\d|2[98654321]\d|9[8543210]|8[6421]|6[6543210]|5[87654321]|4[987654310]|3[9643210]|2[70]|7|1)\s)*[\s\d\(\)\-\.]{6,14}$/g.test(element.value)) {
-                    errors += element.name + ' ';
+            if (param.type === 'tel') {
+                if (!/^(?:(?:\+|011\s)(9[976]\d|8[987530]\d|6[987]\d|5[90]\d|42\d|3[875]\d|2[98654321]\d|9[8543210]|8[6421]|6[6543210]|5[87654321]|4[987654310]|3[9643210]|2[70]|7|1)\s)*[\s\d\(\)\-\.]{6,14}$/g.test(param.value.trim())) {
+                    errors += param.name + ' ';
                 }
             }
         }
 
-        console.log(errors)
         if (errors != '') {
             this.setState({
                 errors: errors
             });
         }
-        return errors === '' ? true : e.preventDefault();
+        return errors === '';
+    }
+
+    get_values(params) {
+        let form_values = [];
+        for (let key in params) {
+            const param = params[key];
+            const field = document.getElementById(param.id)
+            form_values.push(field.name + '|' + field.value);
+        }
+        return form_values;
+    }
+
+    show_values( form, values ) {
+        if (values.length < 1) return;
+        var root = form.parentNode
+        var ul = document.getElementById('form-values');
+
+        if (!ul) {
+            ul = document.createElement('ul');
+            ul.setAttribute('id', 'form-values');
+            root.appendChild(ul);
+        }
+
+        values.forEach(function(val) {
+            var li = ul.querySelector('li[data-for="' + val.replace(/^([^\|]+?)\|[^\$]*/g, '$1') + '"]');
+            if (val.replace(/^[^\|]+?\|([^\$]*)/g, '$1').trim() === '') return;
+            if (!li) {
+                li = document.createElement('li');
+                li.setAttribute('data-for', val.replace(/^([^\|]+?)\|[^\$]*/g, '$1'));
+            }
+            li.innerHTML = val.replace(/^[^\|]+?\|([^\$]*)/g, '$1');
+            return ul.appendChild(li);
+        });
+
+        return this;
     }
 }
