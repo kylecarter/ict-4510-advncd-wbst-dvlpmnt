@@ -36,7 +36,6 @@ export default class One extends React.Component {
     }
 
     static getDerivedStateFromProps(props, state) {
-        console.log(state.kilometers);
         return {
             coords: state.coords,
             can_geo: state.can_geo,

@@ -54,6 +54,11 @@ export default class Home extends React.Component {
                                     <p>Familiarize yourselves with the HTTP protocol, Web browsers and Web servers. Review HTML and CSS concepts.</p>
                                     <Link href="/assignments/1"><a rel="bookmark">Go to assignment.</a></Link>
                                 </li>
+                                <li>
+                                    <h3>Assignment Four</h3>
+                                    <p>Gain an understanding of the Geolocation API and leverage it along side Google maps.</p>
+                                    <Link href="/assignments/4"><a rel="bookmark">Go to assignment.</a></Link>
+                                </li>
                             </ul>
                         </article>
                     </main>
