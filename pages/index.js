@@ -59,6 +59,11 @@ export default class Home extends React.Component {
                                     <p>Gain an understanding of the Geolocation API and leverage it along side Google maps.</p>
                                     <Link href="/assignments/4"><a rel="bookmark">Go to assignment.</a></Link>
                                 </li>
+                                <li>
+                                    <h3>Assignment Six</h3>
+                                    <p>Make use of the Chart.js library to add a Pie and Bar chart to a Web page (<Link href="http://www.chartjs.org/"><a target="_blank">http://www.chartjs.org/</a></Link>).</p>
+                                    <Link href="/assignments/6"><a rel="bookmark">Go to assignment.</a></Link>
+                                </li>
                             </ul>
                         </article>
                     </main>
