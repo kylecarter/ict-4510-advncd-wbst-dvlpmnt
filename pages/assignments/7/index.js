@@ -47,7 +47,7 @@ class LI extends React.Component {
     render() {
         const {formats, pathName} = this.state;
         return (<li className={styles.section}>
-            <video controls id={pathName.replace('/', '-')} width="300" height="300" onCanPlayThrough={this.play}>
+            <video className={styles.video} controls id={pathName.replace('/', '-')} width="300" height="300" onCanPlayThrough={this.play}>
                 {formats.map((type, idx)=> <SOURCE path={'/static/' + pathName + '.' + type} type={type} key={'react.source.' + pathName + '.' + type + '.' + idx }/>)}
                 <p>Your browser doesn't support HTML5 video. Here is a <a href={'/static/' + pathName + '.mp4'}>link to the video</a> instead.</p>
             </video>
