@@ -64,6 +64,11 @@ export default class Home extends React.Component {
                                     <p>Make use of the Chart.js library to add a Pie and Bar chart to a Web page (<Link href="http://www.chartjs.org/"><a target="_blank">http://www.chartjs.org/</a></Link>).</p>
                                     <Link href="/assignments/6"><a rel="bookmark">Go to assignment.</a></Link>
                                 </li>
+                                <li>
+                                    <h3>Assignment Seven</h3>
+                                    <p>Make use of the video element to show videos from a playlist.</p>
+                                    <Link href="/assignments/7"><a rel="bookmark">Go to assignment.</a></Link>
+                                </li>
                             </ul>
                         </article>
                     </main>

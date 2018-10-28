@@ -60,24 +60,18 @@
 .listAssignments
     @extend %list-unstyled
 
+    +breakpoint($screen-tablet-up)
+        display: grid
+        grid-template-rows: auto
+        grid-column-gap: susy-gutter( of 12 )
+        grid-template-columns: susy-span( 6 of 12 ) susy-span( 6 of 12 )
+
     > li
         border-radius: $border-radius-base
         border: thin solid $border-color
         background-color: $white
-        margin: emify(21px) 0
+        margin: emify(16px) 0
         padding: emify(10px)
-
-
-        +breakpoint($screen-tablet-up)
-            float: left
-            max-width: 48%
-            margin: emify(21px) emify( 10px )
-
-            &:nth-child(odd)
-                margin-left: 0
-            
-            &:nth-child(even)
-                margin-right: 0
 
 .ico
 
