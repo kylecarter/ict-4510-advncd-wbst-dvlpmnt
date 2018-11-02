@@ -69,6 +69,11 @@ export default class Home extends React.Component {
                                     <p>Make use of the video element to show videos from a playlist.</p>
                                     <Link href="/assignments/7"><a rel="bookmark">Go to assignment.</a></Link>
                                 </li>
+                                <li>
+                                    <h3>Assignment Eight</h3>
+                                    <p>Leverage the localStorage API to cache an Ajax response.</p>
+                                    <Link href="/assignments/8"><a rel="bookmark">Go to assignment.</a></Link>
+                                </li>
                             </ul>
                         </article>
                     </main>
