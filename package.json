@@ -3,11 +3,12 @@
   "version": "1.0.0",
   "description": "School project.",
   "scripts": {
-    "dev": "next",
     "build": "next build",
-    "start": "next start -p $PORT",
     "postinstall": "npm run build",
-    "heroku-postbuild": "next build"
+    "heroku-postbuild": "next build",
+    "dev": "concurrently 'python backend/manage.py runserver' 'next'",
+    "start": "concurrently 'npm run django' 'next start -p $PORT'",
+    "django": "env PYTHONPATH=$PYTHONPATH:$PWD/backend gunicorn backend.wsgi:application --bind $DJANGO_HOST:$DJANGO_PORT"
   },
   "repository": {
     "type": "git",
@@ -33,6 +34,7 @@
     "bourbon": "^5.1.0",
     "breakpoint-sass": "^2.7.1",
     "chart.js": "^2.7.3",
+    "concurrently": "^4.0.1",
     "css-reset-and-normalize-sass": "^0.1.2",
     "cssnano": "^4.1.0",
     "jquery": "^3.3.1",

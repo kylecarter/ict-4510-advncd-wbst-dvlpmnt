@@ -17,7 +17,7 @@ export default class MyDocument extends Document {
                     <meta name="robots" content="INDEX,FOLLOW" />
                     <meta name="HandheldFriendly" content="true" />
                     <link rel="canonical" href="http://localhost:3000" />
-                    <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:400,400i,700,700i|Roboto+Slab:400,700|Roboto:400,400i,700,700i" rel="stylesheet"></link>
+                    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i,700,700i|PT+Serif:400,400i,700,700i" rel="stylesheet" />
                     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous" />
                     <link rel="stylesheet" href="/_next/static/style.css" />
                 </Head>
