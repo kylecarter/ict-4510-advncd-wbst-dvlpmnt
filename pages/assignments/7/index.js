@@ -3,14 +3,12 @@
 // Node Modules
 import React from 'react'
 import jQuery from 'jquery'
-import Chart from 'chart.js'
 
 // Components
-import HEAD from '../../../components/Head'
+import Page from '../../../components/Page'
 
 // Styles
 import styles from './styles.sass'
-import { list } from 'postcss';
 
 const $ = jQuery;
 const META = {
@@ -59,7 +57,7 @@ class LI extends React.Component {
     }
 }
 
-export default class One extends React.Component {
+export default class Seven extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -84,14 +82,13 @@ export default class One extends React.Component {
 
     render() {
         const {videos} = this.state;
-        return (<div>
-            <HEAD {...META}/>
+        return (<Page {...META}>
             <main className={styles.content}><article className={styles.article}>
                 <h1 className={styles.h1}>Video Element</h1>
                 <ul className={styles.videoList}>
                     {videos && videos.map((data, idx)=> <LI pathName={data.video} key={'react.li.' + data.video + '.' + idx} />)}
                 </ul>
             </article></main>
-        </div>);
+        </Page>);
     }
 }

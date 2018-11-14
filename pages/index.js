@@ -2,10 +2,10 @@
 
 // Node Modules
 import React from 'react'
-import Link from 'next/link'
+import Glide from '@glidejs/glide'
 
 // Components
-import HEAD from '../components/Head'
+import Page from '../components/Page'
 
 // Styles
 import styles from "./styles.sass"
@@ -21,64 +21,63 @@ export default class Home extends React.Component {
         super();
     }
 
+    componentDidMount() {
+        new Glide('#slider', {
+            type: 'slider',
+            perView: 1,
+            startAt: 0,
+            gap: 0
+        }).mount();
+    }
+
     render() {
-        return (<div>
-            <HEAD {...META} />
-            <div className="page page-home">
-                <header className={styles.marquee} role="banner"><div className={styles.container}>
-                    <h1 className={styles.title}>Kyle A. Carter | ICT 4510 Advanced Website Design and Management</h1>
-                </div></header>
-                <div id="content" className={[styles.container, styles.wrapper].join(' ')}>
-                    <aside className={styles.sidebar} role="complementary">
-                        <div className={styles.sidebarBlock}>
-                            <img className={[styles.imgAvatar].join(' ')} src="/static/kylecarter_profile_web.JPG" alt="Kyle Carter Headshot" />
-                            <h2>Kyle A. Carter</h2>
-                        </div>
-                        <div className={styles.sidebarBlock}>
-                            <p>An experienced front end developer versed driven by a desire to create scalable, innovative web applications that inspire and promote success</p>
-                        </div>
-                        <div className={styles.sidebarBlock}>
-                            <ul className={styles.listMeta}>
-                                <li className={styles.icoUsers}>Web Developer</li>
-                                <li className={styles.icoMap}><Link href="https://www.google.com/maps/place/Austin,+TX/@30.3076863,-97.8934865,11z/data=!3m1!4b1!4m5!3m4!1s0x8644b599a0cc032f:0x5d9b464bd469d57a!8m2!3d30.267153!4d-97.7430608"><a rel="bookmark">Austin, TX</a></Link></li>
-                                <li className={styles.icoLink}><Link href="https://github.com/kylecarter"><a rel="bookmark">https://github.com/kylecarter</a></Link></li>
-                            </ul>
-                        </div>
-                    </aside>
-                    <main className={styles.content}>
-                        <article role="article">
-                            <h2>Assignments</h2>
-                            <ul className={styles.listAssignments}>
-                                <li>
-                                    <h3>Assignment One</h3>
-                                    <p>Familiarize yourselves with the HTTP protocol, Web browsers and Web servers. Review HTML and CSS concepts.</p>
-                                    <Link href="/assignments/1"><a rel="bookmark">Go to assignment.</a></Link>
-                                </li>
-                                <li>
-                                    <h3>Assignment Four</h3>
-                                    <p>Gain an understanding of the Geolocation API and leverage it along side Google maps.</p>
-                                    <Link href="/assignments/4"><a rel="bookmark">Go to assignment.</a></Link>
-                                </li>
-                                <li>
-                                    <h3>Assignment Six</h3>
-                                    <p>Make use of the Chart.js library to add a Pie and Bar chart to a Web page (<Link href="http://www.chartjs.org/"><a target="_blank">http://www.chartjs.org/</a></Link>).</p>
-                                    <Link href="/assignments/6"><a rel="bookmark">Go to assignment.</a></Link>
-                                </li>
-                                <li>
-                                    <h3>Assignment Seven</h3>
-                                    <p>Make use of the video element to show videos from a playlist.</p>
-                                    <Link href="/assignments/7"><a rel="bookmark">Go to assignment.</a></Link>
-                                </li>
-                                <li>
-                                    <h3>Assignment Eight</h3>
-                                    <p>Leverage the localStorage API to cache an Ajax response.</p>
-                                    <Link href="/assignments/8"><a rel="bookmark">Go to assignment.</a></Link>
-                                </li>
-                            </ul>
-                        </article>
-                    </main>
-                </div>
-            </div>
-        </div>)
+        return (<Page {...META}>
+            <main className={styles.content}>
+                <article role="article">
+                    <header className={styles.marquee} role="banner"><div className={[styles.slider, styles.glide].join(' ')} id="slider"><div data-glide-el="track" className={[styles.frame, styles.glide__track].join(' ')}>
+                        <ul id="slider" className={[styles.glide__slides, styles.slides].join(' ')}>
+                            <li className={[styles.glide__slide, styles.slide, styles.slideOne].join(' ')}>
+                                <div className={styles.container}><div className={styles.slideText}>
+                                    <h1 className={styles.slideTitle}>Welcome to Chocobo Caf&eacute;</h1>
+                                    <p>We&rsquo;re an eclectic vegan/vegetarian restaurant making a variety of comfort and ethnic foods sure to please every taste bud.</p>
+                                </div></div>
+                            </li>
+                            <li className={[styles.glide__slide, styles.slide, styles.slideTwo].join(' ')}>
+                                <div className={styles.container}><div className={styles.slideText}>
+                                    <h1 className={styles.slideTitle}>From Farm to our Menu</h1>
+                                    <p>We use only the freshest ingredients in all of our food.</p>
+                                </div></div>
+                            </li>
+                            <li className={[styles.glide__slide, styles.slide, styles.slideThree].join(' ')}>
+                                <div className={styles.container}><div className={styles.slideText}>
+                                    <h1 className={styles.slideTitle}>Happy Hour Just Got Better</h1>
+                                    <p>We have a fully stocked bar with drink and food specials everyday of the week.</p>
+                                </div></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div className={styles.glide__arrows} data-glide-el="controls">
+                        <button className={[styles.glide__arrow, styles['glide__arrow--left'], styles.arrow, 'fas', 'fa-chevron-left'].join(' ')} data-glide-dir="<"><span className="sr-only">prev</span></button>
+                        <button className={[styles.glide__arrow, styles['glide__arrow--right'], styles.arrow, 'fas', 'fa-chevron-right'].join(' ')} data-glide-dir=">"><span className="sr-only">next</span></button>
+                    </div>
+                    </div></header>
+                    <section className={[styles.section, styles.sectionMenu].join(' ')}><div className={styles.container}><div className={styles.sectionContent}>
+                        <h2>Always Fresh, Never Frozen</h2>
+                        <p>We source all of our ingredients from local area farms to ensure the best quality food at the best price. We blieve in being a party our community and gladly support our local business partners.</p>
+                        <a href="/menu" class={styles.buttonDefault} rel="bookmark">Our Menu</a>
+                    </div></div></section>
+                    <section className={[styles.section, styles.sectionLocation].join(' ')}><div className={styles.container}><div className={styles.sectionContent}>
+                        <h2>We Are Members of the Community</h2>
+                        <p>Located near the University of Denver campus in Denver, Colorado, Chocobo Caf&acute; prodly serves the local community some of the most diverse selection in vegan and vegetarian food.</p>
+                        <a href="/about" class={styles.buttonDefault} rel="bookmark">Learn More</a>
+                    </div></div></section>
+                    <section className={[styles.section, styles.sectionContact].join(' ')}><div className={styles.container}><div className={styles.sectionContent}>
+                        <h2>We Want to Hear from You</h2>
+                        <p>Tell us about your experience and get all sorts of prizes including gift cards for your next meal.</p>
+                        <a href="/contact" class={styles.buttonDefault} rel="bookmark">Contact Us</a>
+                    </div></div></section>
+                </article>
+            </main>
+        </Page>)
     }
 }

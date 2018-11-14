@@ -1,0 +1,52 @@
+@import 'sass/stylesheet'
+
+.content
+    padding-top: emify(80px, $measure: 'rem')
+
+.marquee .container
+    +container
+
+.title
+    font-family: 'Courgette', cursive
+    font-weight: 400
+
+.section
+    +container
+
+    .container
+        background-color: $white
+        border-radius: emify(3px, $measure: 'rem')
+        box-shadow: 0 0 1px rgba($black, .2)
+        margin-bottom: emify(30px, $measure: 'rem')
+        padding: emify(10px, $measure: 'rem')
+
+.unstyled
+    color: inherit
+    display: block
+
+    &:hover,
+    &:focus,
+    &:active
+        color: inherit
+    
+address
+    font-style: normal
+
+    .unstyled
+        display: inline
+    
+    + time
+        display: block
+
+.responsiveEmbed
+    width: 100%
+    margin-top: emify(21px, $measure: 'rem')
+    padding-bottom: 20%
+    +position(relative, null null null null)
+
+    +breakpoint($screen-tablet-down)
+        padding-bottom: 33%
+
+    &Item
+        +position(absolute, 0 null null 0)
+        +size(100%)

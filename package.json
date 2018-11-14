@@ -6,9 +6,10 @@
     "build": "next build",
     "postinstall": "npm run build",
     "heroku-postbuild": "next build",
-    "dev": "concurrently 'python backend/manage.py runserver' 'next'",
-    "start": "concurrently 'npm run django' 'next start -p $PORT'",
-    "django": "env PYTHONPATH=$PYTHONPATH:$PWD/backend gunicorn backend.wsgi:application --bind $DJANGO_HOST:$DJANGO_PORT"
+    "dev": "concurrently --kill-others \"npm run django:dev\" \"next\"",
+    "django:dev": "python backend/manage.py runserver",
+    "start": "concurrently --kill-others \"npm run django:prod\" \"next start -p $PORT\"",
+    "django:prod": "env PYTHONPATH=$PYTHONPATH:$PWD/backend gunicorn backend.wsgi:application --bind $DJANGO_HOST:$DJANGO_PORT"
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,7 @@
   },
   "homepage": "https://github.com/kylecarter/ict-4510-advncd-wbst-dvlpmnt#readme",
   "dependencies": {
+    "@glidejs/glide": "^3.2.3",
     "@zeit/next-sass": "^0.2.0",
     "Bitters": "https://github.com/thoughtbot/bitters/archive/v1.8.0.tar.gz",
     "animate-sass": "^0.8.2",

@@ -4,8 +4,7 @@
 import React from 'react'
 
 // Components
-import HEAD from '../../../components/Head'
-import {Button, Textfield} from '../../../components/Form'
+import Page from '../../../components/Page'
 
 // Styles
 import styles from './styles.sass'
@@ -23,7 +22,7 @@ const DU = {
 
 const RADIUS = 6371;
 
-export default class One extends React.Component {
+export default class Four extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -51,8 +50,7 @@ export default class One extends React.Component {
 
     render() {
         const {can_geo, coords, kilometers} = this.state;
-        return (<div>
-            <HEAD {...META}/>
+        return (<Page {...META}>
             <main className={styles.content}><article className={styles.article}>
                 <h1 className={styles.h1}>Using the Geolocation API</h1>
                 <section className={styles.section}>
@@ -68,7 +66,7 @@ export default class One extends React.Component {
                 </section>
             </article></main>
             <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6uD_aOL_zFyC6ty4GTHkbR_LY4XpsI0w&callback=initMap" async defer></script>
-        </div>)
+        </Page>)
     }
 
     map() {

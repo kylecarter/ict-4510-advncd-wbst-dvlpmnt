@@ -18,9 +18,9 @@ from django.urls import path
 
 # Custom
 from . import views
+from restaurant.views import Menu
 
 urlpatterns = [
     path( 'verify/', views.verify, name='verify' ),
-    # path( 'restaurant/pages/', Navigation.as_view() ),
-    # path( 'restaurant/page/<slug:page_slug>/', Page.as_view() ),
+    path( 'menu/', Menu.as_view() ),
 ]

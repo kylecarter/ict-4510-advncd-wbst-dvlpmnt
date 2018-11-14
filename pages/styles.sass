@@ -1,88 +1,143 @@
 @import 'sass/stylesheet'
+@import "@glidejs/glide/src/assets/sass/glide.core"
+@import "@glidejs/glide/src/assets/sass/glide.theme"
 
 .container
-    +container()
+    +container
+    position: relative
+    z-index: 2
 
-.wrapper
-
-    +breakpoint( $screen-phablet-up )
-        display: grid
-        align-items: stretch
-        justify-items: stretch
-        grid-template-rows: auto
-        grid-column-gap: susy-gutter( of 12 )
-        grid-template-columns: susy-span( 3 of 12 ) susy-span( 9 of 12 )
-
-.marquee
-    color: $white
-    padding: 12% 0
-    background: $text-color url('/static/banner.JPG') no-repeat center
-    background-size: cover
-
-.title
-    color: inherit
-    @extend %h3
+.slideText
+    text-shadow: 0 0 1px rgba($black, .2)
+    padding-top: 15%
+    padding-bottom: 15%
+    max-width: 600px
     margin: 0
 
-.sidebar
-    font-size: emify(14px)
-    line-height: 1.6
-
-    +breakpoint($screen-phablet-up)
-        +position(relative, -60px null null null)
-
-    &Block
-        width: 100%
-        margin: 21px 0
-        background-color: $white
-        border-radius: $border-radius-base
-        padding: emify($padding-base-horizontal)
-
-        &-first-child
-            margin-top: 0
-    
-.img
-
-    &Avatar
-        @extend %img-responsive
-        @extend %img-round
-
-.listMeta
-    @extend %list-unstyled
-
 .content
-    margin: 21px 0
+    padding-top: emify(55px, $measure: 'rem')
 
-    +breakpoint($screen-tablet-up)
-        padding: emify(10px)
-        background-color: $white
+.slideTitle
+    font-family: 'Courgette', cursive
+    font-weight: 400
 
-.listAssignments
-    @extend %list-unstyled
-
-    +breakpoint($screen-tablet-up)
-        display: grid
-        grid-template-rows: auto
-        grid-column-gap: susy-gutter( of 12 )
-        grid-template-columns: susy-span( 6 of 12 ) susy-span( 6 of 12 )
+.slides
+    list-style-type: none
+    padding-left: 0
+    margin-left: 0
+    margin-bottom: 0
+    align-items: stretch
 
     > li
-        border-radius: $border-radius-base
-        border: thin solid $border-color
-        background-color: $white
-        margin: emify(16px) 0
-        padding: emify(10px)
+        list-style-type: none
+        padding-left: 0
+        margin-left: 0
+.slide
+    background-size: cover
+    background-repeat: no-repeat
+    min-height: 250px
+    color: $white
 
-.ico
+    &::before
+        +position(absolute, 0 null null 0)
+        +size(100%)
+        background-color: rgba($black, .4)
+        content: ''
+        z-index: 1
+    
+    &One
+        background-image: url('/static/home/city-q-c-480-175-10.jpg')
 
-    &Users
-        @extend %ico
-        @extend %ico-user
-    
-    &Map
-        @extend %ico
-        @extend %ico-map
-    
-    &Link
-        @extend %ico
-        @extend %ico-link
+        +breakpoint($screen-phablet-up)
+            background-image: url('/static/home/city-q-c-600-300-10.jpg')
+        
+        +breakpoint($screen-tablet-up)
+            background-image: url('/static/home/city-q-c-1440-500-10.jpg')
+
+    &Two
+        background-image: url('/static/home/food-q-c-480-175-5.jpg')
+
+        +breakpoint($screen-phablet-up)
+            background-image: url('/static/home/food-q-c-600-300-5.jpg')
+        
+        +breakpoint($screen-tablet-up)
+            background-image: url('/static/home/food-q-c-1440-500-5.jpg')
+
+    &Three
+        background-image: url('/static/home/nightlife-q-c-480-175-7.jpg')
+
+        +breakpoint($screen-phablet-up)
+            background-image: url('/static/home/nightlife-q-c-600-300-7.jpg')
+        
+        +breakpoint($screen-tablet-up)
+            background-image: url('/static/home/nightlife-q-c-1440-500-7.jpg')
+
+    h1, .h1
+        color: inherit
+        margin-bottom: emify(6px, $measure: 'rem')
+
+.arrow
+    @extend %btn-plain
+    border: 0 !important
+    box-shadow: none !important
+    font-size: emify($font-size-base * 2, $measure: 'rem')
+
+    +breakpoint($screen-tablet-down)
+        bottom: 0
+        top: auto
+
+.glide__arrow--left
+    left: 16px
+
+.glide__arrow--right
+    right: 16px
+
+.buttonDefault
+    @extend %btn
+    @extend %btn-primary
+
+.section
+    border: thin solid $border-color
+
+    &Menu
+        background-image: url('/static/home/food-q-c-640-480-6.jpg')
+        background-position: 100% 0
+        background-repeat: no-repeat
+        background-size: 45% auto
+
+        +breakpoint($screen-tablet-down)
+            background-size: 100% auto
+
+    &Location
+        background-image: url('/static/home/people-q-c-640-480-4.jpg')
+        background-position: 0 0
+        background-repeat: no-repeat
+        background-size: 45% auto
+
+        .sectionContent
+
+            +breakpoint($screen-tablet-up)
+                float: right
+
+        +breakpoint($screen-tablet-down)
+            background-size: 100% auto
+
+    &Contact
+        background-image: url('/static/home/nightlife-q-c-640-480-8.jpg')
+        background-position: 100% 0
+        background-repeat: no-repeat
+        background-size: 45% auto
+
+        +breakpoint($screen-tablet-down)
+            background-size: cover
+
+    &Content
+        max-width: 600px
+        padding: emify(81px, $measure: 'rem') 0
+
+        +breakpoint($screen-tablet-down)
+            background-color: rgba($white, 0.8)
+            border-radius: emify(3px, $measure: 'rem')
+            display: inline-block
+            margin: emify(30px, $measure: 'rem') 0
+            padding: emify(10px, $measure: 'rem')

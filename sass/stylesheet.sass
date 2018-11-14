@@ -19,12 +19,13 @@ html, body
     &, &:after, &:before
       box-sizing: border-box
 
-body > div
+#__next > div
   display: flex
+  min-height: 100vh
   flex-direction: column
 
-  > #__next
-    flex: 1
+  > main
+    flex: 2
 
 h1, h2, h3, h4, h5, h6
   font-family: $headings-font-family

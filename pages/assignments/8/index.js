@@ -6,7 +6,7 @@ import jQuery from 'jquery'
 import Chart from 'chart.js'
 
 // Components
-import HEAD from '../../../components/Head'
+import Page from '../../../components/Page'
 
 // Styles
 import styles from './styles.sass'
@@ -18,7 +18,7 @@ const META = {
     keywords: 'html, css, js, react, nextjs'
 };
 
-export default class One extends React.Component {
+export default class Eight extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -47,8 +47,7 @@ export default class One extends React.Component {
 
     render() {
         const {bar, pie} = this.state;
-        return (<div>
-            <HEAD {...META}/>
+        return (<Page {...META}>
             <main className={styles.content}><article className={styles.article}>
                 <h1 className={styles.h1}>Using LocalStorage</h1>
                 <section className={styles.section}>
@@ -59,7 +58,7 @@ export default class One extends React.Component {
                     <canvas className={styles.responsiveEmbed} id="pie-chart"></canvas>
                 </section>
             </article></main>
-        </div>)
+        </Page>)
     }
 
     store(data, textStatus, jqXHR) {

@@ -154,5 +154,6 @@ env.bat
 # system
 .DS_Store
 .venv
+backend/backend/media
 backend/assets/*
 !backend/assets/.staticfilesrc

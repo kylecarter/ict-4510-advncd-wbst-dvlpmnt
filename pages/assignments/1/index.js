@@ -4,7 +4,7 @@
 import React from 'react'
 
 // Components
-import HEAD from '../../../components/Head'
+import Page from '../../../components/Page'
 import {Button, Textfield} from '../../../components/Form'
 
 // Styles
@@ -45,8 +45,7 @@ export default class One extends React.Component {
 
     render() {
         const {errors} = this.state;
-        return(<div>
-            <HEAD {...META}/>
+        return(<Page {...META}>
             <main className={styles.content}>
                 <form method="post" id="assignment-one-form" className={styles.form} onSubmit={this.submit} onChange={this.submit}>
                     <Textfield err={/first_name/g.test(errors)} label='First Name' label_display='visible' name='first_name' attributes={{
@@ -86,7 +85,7 @@ export default class One extends React.Component {
                     }} />
                 </form>
             </main>
-        </div>)
+        </Page>)
     }
 
     submit( e ) {

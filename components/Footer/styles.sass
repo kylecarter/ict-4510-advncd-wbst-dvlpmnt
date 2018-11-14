@@ -12,7 +12,7 @@
 
     &Top
         background-color: $text-color
-        padding: 54px 0
+        padding: emify(54px, $measure: 'rem') 0
 
         h2
             @extend %h4
@@ -21,9 +21,9 @@
 
     &Bottom
         background-color: $black
-        padding: 54px
+        padding: emify(54px, $measure: 'rem') 0
 
-        h6
+        p
             margin: 0
             @extend %h6
 

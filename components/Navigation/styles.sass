@@ -1,8 +1,9 @@
 @import 'sass/components'
 
 .nav
-    background-color: rgba($text-color, 0.6)
+    padding: emify(8px, $measure: 'rem')
     +position(fixed, null null null null)
+    background-color: $text-color
     z-index: 100000
     display: block
     color: $white
@@ -13,18 +14,69 @@
 
 .listMenu
     @extend %list-unstyled
-    font-size: emify( 20px )
+    font-weight: 300
     color: $white
+
+    +breakpoint($screen-tablet-down)
+        +size(100%)
+        +size(100vw, 100vh)
+        +position(fixed, -100% null null 0)
+
+        text-align: center
+        background-color: $text-color
+        transition: top .15s ease-in-out
+        font-size: emify(20px, $measure: 'rem')
+        padding-top: emify(81px, $measure: 'rem')
+
+        .navOpen &
+            top: 0
+
+    +breakpoint($screen-tablet-up)
+        font-size: emify( 14px )
+        float: right
 
     a
         color: inherit
 
     > li
-        float: right
-        margin: 0 emify( 6px )
 
-        &:first-child
-            margin-left: 0
+        +breakpoint($screen-tablet-down)
+            
+            > a
+                display: block
+                border: thin solid $white
+                border-left: 0
+                border-right: 0
+                padding: emify(10px, $measure: 'rem')
 
-    > .branding
-        float: left
+        +breakpoint($screen-tablet-up)
+            margin: 0 emify( 8px )
+            display: inline-block
+
+.branding
+    float: left
+    color: inherit
+    max-width: 150px
+    vertical-align: middle
+
+    img
+        height: auto
+        max-height: 30px
+        width: 100%
+
+.bars
+    float: right
+    display: none
+    color: inherit
+
+    +breakpoint($screen-tablet-down)
+        display: block
+
+    .navOpen &
+        +position(fixed, 1rem 1rem null null)
+        font-size: emify(20px, $measure: 'rem')
+        display: block
+        z-index: 10001
+        
+        &:before
+            content: '\f00d'
