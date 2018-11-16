@@ -3,10 +3,6 @@
 // Node Modules
 import Document, { Head, Main, NextScript } from 'next/document'
 
-// Components
-import Navigation from '../components/Navigation'
-import Footer from '../components/Footer'
-
 export default class MyDocument extends Document {
     render() {
         return (

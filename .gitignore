@@ -154,6 +154,7 @@ env.bat
 # system
 .DS_Store
 .venv
-backend/backend/media
-backend/assets/*
-!backend/assets/.staticfilesrc
+static/django/*
+static/media/*
+!static/django/.staticfilesrc
+!static/media/.staticfilesrc

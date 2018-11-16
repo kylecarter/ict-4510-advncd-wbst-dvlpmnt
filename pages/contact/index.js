@@ -4,7 +4,7 @@
 import React from 'react'
 
 // Components
-import HEAD from '../../components/Head'
+import Page from '../components/Page'
 
 // Styles
 import styles from "./styles.sass"
@@ -22,8 +22,8 @@ export default class About extends React.Component {
     }
 
     render() {
-        return (<div>
-            <HEAD {...META} />
-        </div>);
+        return (<Page {...META}>
+            <main className={styles.content}></main>
+        </Page>);
     }
 }

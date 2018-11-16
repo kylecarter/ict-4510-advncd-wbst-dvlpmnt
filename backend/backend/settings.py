@@ -123,8 +123,8 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join( BASE_DIR, 'assets/static' )
+STATIC_URL = '/django/'
+STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static/django')
 STATICFILES_DIRS = [
     os.path.join( BASE_DIR, 'restaurant/static' ),
 ]
@@ -136,5 +136,5 @@ INSTALLED_APPS = [
 ] + INSTALLED_APPS
 
 # Media
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static/media')
 MEDIA_URL = '/media/'

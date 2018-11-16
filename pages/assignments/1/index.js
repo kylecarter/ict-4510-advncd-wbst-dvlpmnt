@@ -4,8 +4,8 @@
 import React from 'react'
 
 // Components
-import Page from '../../../components/Page'
-import {Button, Textfield} from '../../../components/Form'
+import Page from '../../components/Page'
+import {Button, Textfield} from '../../components/Form'
 
 // Styles
 import styles from './styles.sass'

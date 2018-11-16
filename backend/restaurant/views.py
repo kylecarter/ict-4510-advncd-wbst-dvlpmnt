@@ -24,7 +24,7 @@ class Menu( View ):
         
         return JsonResponse({'menu': menu})
 
-class ServerContactForm( View ):
+# class ServerContactForm( View ):
 
 
 class HandleContactForm( View ):

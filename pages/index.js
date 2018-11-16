@@ -5,7 +5,7 @@ import React from 'react'
 import Glide from '@glidejs/glide'
 
 // Components
-import Page from '../components/Page'
+import Page from './components/Page'
 
 // Styles
 import styles from "./styles.sass"
@@ -64,17 +64,17 @@ export default class Home extends React.Component {
                     <section className={[styles.section, styles.sectionMenu].join(' ')}><div className={styles.container}><div className={styles.sectionContent}>
                         <h2>Always Fresh, Never Frozen</h2>
                         <p>We source all of our ingredients from local area farms to ensure the best quality food at the best price. We blieve in being a party our community and gladly support our local business partners.</p>
-                        <a href="/menu" class={styles.buttonDefault} rel="bookmark">Our Menu</a>
+                        <a href="/menu" className={styles.buttonDefault} rel="bookmark">Our Menu</a>
                     </div></div></section>
                     <section className={[styles.section, styles.sectionLocation].join(' ')}><div className={styles.container}><div className={styles.sectionContent}>
                         <h2>We Are Members of the Community</h2>
                         <p>Located near the University of Denver campus in Denver, Colorado, Chocobo Caf&acute; prodly serves the local community some of the most diverse selection in vegan and vegetarian food.</p>
-                        <a href="/about" class={styles.buttonDefault} rel="bookmark">Learn More</a>
+                        <a href="/about" className={styles.buttonDefault} rel="bookmark">Learn More</a>
                     </div></div></section>
                     <section className={[styles.section, styles.sectionContact].join(' ')}><div className={styles.container}><div className={styles.sectionContent}>
                         <h2>We Want to Hear from You</h2>
                         <p>Tell us about your experience and get all sorts of prizes including gift cards for your next meal.</p>
-                        <a href="/contact" class={styles.buttonDefault} rel="bookmark">Contact Us</a>
+                        <a href="/contact" className={styles.buttonDefault} rel="bookmark">Contact Us</a>
                     </div></div></section>
                 </article>
             </main>

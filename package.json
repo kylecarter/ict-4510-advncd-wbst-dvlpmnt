@@ -6,9 +6,10 @@
     "build": "next build",
     "postinstall": "npm run build",
     "heroku-postbuild": "next build",
-    "dev": "concurrently --kill-others \"npm run django:dev\" \"next\"",
+    "dev": "concurrently --kill-others \"npm run django:dev\" \"npm run node:dev\"",
+    "node:dev": "npm run build && node ./index.js",
     "django:dev": "python backend/manage.py runserver",
-    "start": "concurrently --kill-others \"npm run django:prod\" \"next start -p $PORT\"",
+    "start": "concurrently --kill-others \"npm run django:prod\" \"node --optimize_for_size --max_old_space_size=920 --gc_interval=100 --expose-gc index.js\"",
     "django:prod": "env PYTHONPATH=$PYTHONPATH:$PWD/backend gunicorn backend.wsgi:application --bind $DJANGO_HOST:$DJANGO_PORT"
   },
   "repository": {
@@ -39,6 +40,8 @@
     "concurrently": "^4.0.1",
     "css-reset-and-normalize-sass": "^0.1.2",
     "cssnano": "^4.1.0",
+    "express": "^4.16.4",
+    "http-proxy": "^1.17.0",
     "jquery": "^3.3.1",
     "jquery-validation": "^1.18.0",
     "next": "^6.1.2",

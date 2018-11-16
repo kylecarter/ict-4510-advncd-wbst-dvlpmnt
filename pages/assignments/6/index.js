@@ -6,7 +6,7 @@ import jQuery from 'jquery'
 import Chart from 'chart.js'
 
 // Components
-import Page from '../../../components/Page'
+import Page from '../../components/Page'
 
 // Styles
 import styles from './styles.sass'
