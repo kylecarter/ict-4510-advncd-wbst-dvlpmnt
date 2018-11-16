@@ -19,6 +19,7 @@ class Menu( View ):
         for course in courses:
             menu.append({
                 'course': course.title,
+                'course_id': course.id,
                 'items': list( Entree.objects.filter( course__id=course.id ).values() )
             })
         

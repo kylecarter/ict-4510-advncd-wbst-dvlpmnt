@@ -1,6 +1,7 @@
 const express = require('express');
 const next = require('next');
 const httpProxy = require('http-proxy');
+const cookieParser = require('cookie-parser');
 
 const DEV = process.env.NODE_ENV !== 'production'
 
@@ -16,14 +17,21 @@ const PROXY = httpProxy.createProxyServer({
 APP.prepare().then(() => {
     const SERVER = express()
     SERVER.enable('trust proxy');
+    SERVER.use(cookieParser());
+
+    SERVER.get('/api/v1/:api', (req, res) => {
+        const CSRF_TOKEN = req.cookies.csrftoken;
+        PROXY.web(req, res, {target: (req.secure ? 'https://' : 'http://') + process.env.DJANGO_HOST + ':' + process.env.DJANGO_PORT});
+    });
 
     SERVER.get('/admin', (req, res) => {
-        console.log(req.path);
+        const CSRF_TOKEN = req.cookies.csrftoken;
         PROXY.web(req, res, {target: (req.secure ? 'https://' : 'http://') + process.env.DJANGO_HOST + ':' + process.env.DJANGO_PORT});
     });
 
     SERVER.get('*', (req, res) => {
-        handle(req, res)
+        const CSRF_TOKEN = req.cookies.csrftoken;
+        handle(req, res);
     });
 
     SERVER.listen(process.env.PORT);

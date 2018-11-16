@@ -27,7 +27,7 @@ export default class Navigation extends React.Component {
 
     render() {
         const {show} = this.state;
-        return (<nav id="nav" className={["fixed", styles.nav, show ? styles.navOpen : ''].join(' ').trim()}><div className={styles.navContainer} role="navigation">
+        return (<nav id="nav" className={[styles.nav, show ? styles.navOpen : ''].join(' ').trim()}><div className={styles.navContainer} role="navigation">
             <a href="/" className={[styles.logo, styles.branding].join(' ')} rel="bookmark"><img src="/static/logo.svg" alt="Chocobo Cafe logo" /></a>
             <a href="/" className={['fas', 'fa-bars', styles.bars].join(' ').trim()} rel="bookmark" role="button" onClick={this.toggle} onTouchEnd={this.toggle}><span className="sr-only">Toggle menu visibility...</span></a>
             <ul className={styles.listMenu}>

@@ -1,4 +1,97 @@
 @import 'sass/stylesheet'
 
 .content
-    padding-top: emify(80px, $measure: 'rem')
+    background:
+        attachment: scroll
+        color: $matte-bg
+        image: url('/static/menu/food-q-c-1440-720-6.jpg')
+        position: center
+        repeat: no-repeat
+        size: cover
+    padding-bottom: emify(42px, $measure: 'rem')
+    padding-top: emify(42px, $measure: 'rem')
+    position: relative
+
+    &::before
+        +position(absolute, 0 null null null)
+        +size(100%)
+
+        background-color: rgba($white, .4)
+        content: ''
+
+.h1
+    font-size: emify(24px)
+    position: relative
+    text-align: center
+    z-index: 1
+
+.h2
+    border-bottom: emify(6px, $measure: 'rem') double darken($border-color, 20%)
+    font-size: emify(20px)
+    text-align: center
+    padding-bottom: emify(3px, $measure: 'rem')
+
+.h3
+    font-size: emify(18px)
+    margin-bottom: emify(3px, $measure: 'rem')
+    padding-right: susy-gutter(of 2) / 2
+
+.section
+    +container
+
+    position: relative
+    z-index: 1
+
+    margin:
+        bottom: emify(42px, $measure: 'rem')
+        top: emify(42px, $measure: 'rem')
+    
+    &:last-child
+        margin-bottom: 0
+
+        .menu
+            margin-bottom: 0
+    
+    p
+        font-size: emify(14px)
+
+.price
+    +position(absolute, 0 0 null null)
+
+.menu
+    @extend %list-unstyled
+
+    +breakpoint($screen-tablet-up)
+        display: flex
+        flex-wrap: wrap
+
+        @supports (display: grid)
+            display: grid
+            grid-template-columns: repeat(2, susy-span(1 of 2 set-gutters 0))
+
+    > li
+        margin: 0
+        position: relative
+
+        +breakpoint($screen-tablet-up)
+            float: left
+            width: susy-span(1 of 2 set-gutters 0)
+
+            @supports (display: grid)
+                width: 100%
+
+        +breakpoint($screen-tablet-down)
+            padding-right: 8%
+
+        +breakpoint($screen-tablet-up)
+
+            &:nth-child(odd)
+                padding-right: susy-gutter(of 2) / 2
+
+                .price
+                    right: susy-gutter(of 2) / 2
+
+            &:nth-child(even)
+                border-left: thin solid $border-color
+                padding-left: susy-gutter(of 2) / 2
+

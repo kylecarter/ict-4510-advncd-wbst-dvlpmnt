@@ -2,15 +2,11 @@
 
 .nav
     padding: emify(8px, $measure: 'rem')
-    +position(fixed, null null null null)
     background-color: $text-color
-    z-index: 100000
-    display: block
     color: $white
-    width: 100%
 
-.navContainer
-    +container()
+    &Container
+        +container
 
 .listMenu
     @extend %list-unstyled
@@ -37,6 +33,12 @@
 
     a
         color: inherit
+
+        &:hover,
+        &:focus,
+        &:active,
+        .active
+            color: $chocobo
 
     > li
 

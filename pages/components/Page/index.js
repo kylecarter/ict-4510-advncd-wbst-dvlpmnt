@@ -6,6 +6,7 @@ import underscore from 'underscore'
 
 // Components
 import HEAD from '../Head'
+import Banner from '../Banner'
 import Navigation from '../Navigation'
 import Footer from '../Footer'
 
@@ -22,6 +23,7 @@ export default class Page extends React.Component {
     render() {
         return (<div>
             <HEAD {...this.state} />
+            <Banner />
             <Navigation />
             <div className={styles.page}>{this.props.children}</div>
             <Footer />

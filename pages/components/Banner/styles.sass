@@ -1,0 +1,41 @@
+@import 'sass/components'
+
+.banner
+    background-color: $black
+    color: $white
+    font-size: emify(12px)
+    padding: emify(8px, $measure: 'rem')
+
+    &Container
+        +container
+
+.link
+    color: inherit
+    display: inline-block
+
+    &:hover,
+    &:focus,
+    &:active
+        color: $chocobo
+
+    + .link
+        margin-left: emify(9px, $measure: 'rem')
+
+.fas
+    display: inline-block
+    margin-right: emify(6px, $measure: 'rem')
+
+.address
+    float: left
+
+.contact
+    float: right
+
+.text
+
+    +breakpoint($screen-tablet-down)
+        +position(absolute, null null null null)
+        +size(0)
+
+        overflow: hidden
+        text-indent: -9999em
