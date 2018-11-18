@@ -35,23 +35,7 @@ APP.prepare().then(() => {
         return PROXY.web(req, res, {target: (req.secure ? 'https://' : 'http://') + process.env.DJANGO_HOST + ':' + process.env.DJANGO_PORT});
     });
 
-    SERVER.get('/admin/:model/:list/:id/:action', (req, res)=> {
-        return PROXY.web(req, res, {target: (req.secure ? 'https://' : 'http://') + process.env.DJANGO_HOST + ':' + process.env.DJANGO_PORT});
-    });
-
-    SERVER.get('/admin/:model/:list/:id', (req, res)=> {
-        return PROXY.web(req, res, {target: (req.secure ? 'https://' : 'http://') + process.env.DJANGO_HOST + ':' + process.env.DJANGO_PORT});
-    });
-
-    SERVER.get('/admin/:model/:list', (req, res)=> {
-        return PROXY.web(req, res, {target: (req.secure ? 'https://' : 'http://') + process.env.DJANGO_HOST + ':' + process.env.DJANGO_PORT});
-    });
-
-    SERVER.get('/admin/:model', (req, res)=> {
-        return PROXY.web(req, res, {target: (req.secure ? 'https://' : 'http://') + process.env.DJANGO_HOST + ':' + process.env.DJANGO_PORT});
-    });
-
-    SERVER.get('/admin', (req, res)=> {
+    SERVER.get('/admin*', (req, res)=> {
         return PROXY.web(req, res, {target: (req.secure ? 'https://' : 'http://') + process.env.DJANGO_HOST + ':' + process.env.DJANGO_PORT});
     });
 

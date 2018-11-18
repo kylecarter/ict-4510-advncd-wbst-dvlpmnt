@@ -43,7 +43,7 @@ export default class Gallery extends React.Component {
             url: '/api/v1/reddit',
             success: self.posts,
             data: {
-                q: 'VeganFoodPorn'
+                q: 'veganfoodporn'
             }
         });
     }
