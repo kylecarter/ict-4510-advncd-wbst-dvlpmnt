@@ -9,8 +9,10 @@
     "heroku-postbuild": "next build",
     "dev": "concurrently --kill-others \"npm run django:dev\" \"npm run node:dev\"",
     "node:dev": "npm run build && node ./server.js",
+    "node:prod": "node --optimize_for_size --max_old_space_size=920 --gc_interval=100 --expose-gc server.js",
     "django:dev": "python backend/manage.py runserver",
-    "start": "node --optimize_for_size --max_old_space_size=920 --gc_interval=100 --expose-gc server.js"
+    "start": "concurrently --kill-others \"npm run django:prod\" \"npm run node:prod\"",
+    "django:prod": "env PYTHONPATH=$PYTHONPATH:$PWD/backend gunicorn backend.wsgi:application --bind $DJANGO_HOST:$DJANGO_PORT"
   },
   "repository": {
     "type": "git",
