@@ -43,10 +43,6 @@ APP.prepare().then(() => {
         return PROXY.web(req, res, {target: 'http://' + process.env.DJANGO_HOST + ':' + process.env.DJANGO_PORT});
     });
 
-    SERVER.get('/gallery', (req, res)=> {
-        return handle(req, res);
-    });
-
     SERVER.get('*', (req, res) => {
         return handle(req, res);
     });
