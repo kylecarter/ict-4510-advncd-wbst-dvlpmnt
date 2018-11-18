@@ -12,7 +12,7 @@
     "dev": "concurrently --kill-others \"npm run django:dev\" \"npm run node:dev\"",
     "start": "concurrently --kill-others \"npm run django:prod\" \"npm run node:prod\"",
     "node:prod": "node --optimize_for_size --max_old_space_size=920 --gc_interval=100 --expose-gc server.js",
-    "django:prod": "gunicorn path.to.wsgi:application --bind $DJANO_HOST:$DJANGO_PORT"
+    "django:prod": "python backend/manage.py runserver $DJANGO_HOST:$DJANGO_PORT"
   },
   "repository": {
     "type": "git",
