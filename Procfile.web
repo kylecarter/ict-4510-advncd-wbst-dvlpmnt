@@ -1,2 +1,2 @@
-django: env PYTHONPATH=$PYTHONPATH:$PWD/backend gunicorn backend.wsgi:application --bind $DJANGO_HOST:$DJANGO_PORT
-node: npm run start
+django: gunicorn path.to.wsgi:application --bind $DJANO_HOST:$DJANGO_PORT
+node: node --optimize_for_size --max_old_space_size=920 --gc_interval=100 --expose-gc server.js

@@ -18,14 +18,13 @@ APP.prepare().then(() => {
     SERVER.enable('trust proxy');
     SERVER.use(cookieParser());
 
-    SERVER.get('/api/v1/instagram', (req, res)=> {
-        INSTA.get(`tags/${req.query.q}/media/recent`, { client_id: process.env.INSTAGRAM_CLIENT_ID }, (err, data) => {
-            if (err) console.error(err);
+    SERVER.get('/api/v1/reddit', (req, res)=> {
+        axios.get(`https://www.reddit.com/r/${req.query.q}/new.json?sort=new`).then( response => {
             res.setHeader('Content-Type', 'application/json');
             res.send(JSON.stringify({
-                posted: data
+                posts: response.data.children
             }));
-        });
+        }).catch( (error)=> console.error(error));
     });
 
     SERVER.get('/api/v1/:api', (req, res)=> {
