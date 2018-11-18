@@ -11,12 +11,16 @@
     "node:dev": "npm run build && node ./server.js",
     "node:prod": "node --optimize_for_size --max_old_space_size=920 --gc_interval=100 --expose-gc server.js",
     "django:dev": "python backend/manage.py runserver",
-    "start": "concurrently --kill-others \"npm run django:prod\" \"npm run node:prod\"",
+    "start": "npm run node:prod",
     "django:prod": "env PYTHONPATH=$PYTHONPATH:$PWD/backend gunicorn backend.wsgi:application --bind $DJANGO_HOST:$DJANGO_PORT"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kylecarter/ict-4510-advncd-wbst-dvlpmnt.git"
+  },
+  "engines": {
+    "node": "10.9.0",
+    "npm": "6.2.0"
   },
   "keywords": [
     "react",
