@@ -53,15 +53,12 @@
     "jquery": "^3.3.1",
     "jquery-validation": "^1.18.0",
     "next": "^6.1.2",
-    "node-instagram": "^4.2.0",
     "node-sass": "^4.9.3",
     "postcss": "^7.0.2",
     "postcss-cli": "^6.0.0",
     "react": "^16.5.1",
     "react-dom": "^16.5.1",
     "susy": "^3.0.5",
-    "twit": "^2.2.11",
-    "twitter": "^1.7.1",
     "underscore": "^1.9.1"
   }
 }
