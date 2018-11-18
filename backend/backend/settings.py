@@ -127,11 +127,13 @@ STATIC_URL = '/static/django/'
 STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static/django')
 STATICFILES_DIRS = [
     os.path.join( BASE_DIR, 'restaurant/static' ),
+    os.path.join( BASE_DIR, 'feedback/static' ),
 ]
 
 # Additional Installed Apps
 INSTALLED_APPS = [
     'restaurant.apps.RestaurantConfig',
+    'feedback.apps.FeedbackConfig',
     'api.apps.ApiConfig',
 ] + INSTALLED_APPS
 
