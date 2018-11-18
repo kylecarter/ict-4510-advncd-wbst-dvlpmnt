@@ -27,15 +27,19 @@ APP.prepare().then(() => {
         }).catch( (error)=> console.error(error));
     });
 
-    SERVER.get('/api/v1/:api', (req, res)=> {
+    SERVER.get('/api*', (req, res)=> {
         return PROXY.web(req, res, {target: 'http://' + process.env.DJANGO_HOST + ':' + process.env.DJANGO_PORT});
     });
 
-    SERVER.post('/api/v1/:api', (req, res)=> {
+    SERVER.post('/api*', (req, res)=> {
         return PROXY.web(req, res, {target: 'http://' + process.env.DJANGO_HOST + ':' + process.env.DJANGO_PORT});
     });
 
     SERVER.get('/admin*', (req, res)=> {
+        return PROXY.web(req, res, {target: 'http://' + process.env.DJANGO_HOST + ':' + process.env.DJANGO_PORT});
+    });
+
+    SERVER.post('/admin*', (req, res)=> {
         return PROXY.web(req, res, {target: 'http://' + process.env.DJANGO_HOST + ':' + process.env.DJANGO_PORT});
     });
 
