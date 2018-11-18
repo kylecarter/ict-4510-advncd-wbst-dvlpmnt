@@ -45,7 +45,7 @@ export default class About extends React.Component {
                     <h1 className={styles.h1}>Tell us about your experience</h1>
                     <p>Use the form below to let us know what your experiences with our restaurant are like.</p>
                 </header>
-                <form method="post" id="contact-form" className={styles.form}>
+                <form method="post" id="contact-form" className={styles.form} action="">
                     <Textfield label='Full Name' label_display='visible' name='contact' attributes={{
                         type: 'text',
                         required: 'required',
