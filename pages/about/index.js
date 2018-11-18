@@ -14,6 +14,11 @@ const META = {
     description: 'Learn more about Chocobo Cafe.',
     keywords: 'html, css, js, react, nextjs'
 }
+const _cookieify = cookie => {
+    let obj = new Object();
+    cookie.split(';').forEach(data => obj[data.split('=')[0]] = data.split('=')[1]);
+    return obj;
+};
 
 export default class About extends React.Component {
     constructor(props) {
@@ -52,7 +57,7 @@ export default class About extends React.Component {
                     </div></section>
                 </article>
             </main>
-            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6uD_aOL_zFyC6ty4GTHkbR_LY4XpsI0w&callback=initMap" async defer></script>
+            <script src={"https://maps.googleapis.com/maps/api/js?key=" + _cookieify(document.cookie).GOOGLE_MAPS_API_KEY + "&callback=initMap"} async defer></script>
         </Page>);
     }
 }

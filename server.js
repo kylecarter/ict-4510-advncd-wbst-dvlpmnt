@@ -44,6 +44,7 @@ APP.prepare().then(() => {
     });
 
     SERVER.get('*', (req, res) => {
+        if (!req.cookie.GOOGLE_MAPS_API_KEY) res.cookie('GOOGLE_MAPS_API_KEY', process.env.GOOGLE_MAPS_API_KEY, { expires: new Date(Date.now() + 900000), httpOnly: false })
         return handle(req, res);
     });
 
