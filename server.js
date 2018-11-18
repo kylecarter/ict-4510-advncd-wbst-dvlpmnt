@@ -2,16 +2,9 @@ const express = require('express');
 const next = require('next');
 const httpProxy = require('http-proxy');
 const cookieParser = require('cookie-parser');
-const Instagram = require('node-instagram').default;
+const axios = require('axios');
 
 const DEV = process.env.NODE_ENV !== 'production';
-//https://www.instagram.com/oauth/authorize/?client_id=client_id&redirect_uri=https://www.kylecarter.info/&response_type=token&scope=public_content
-const INSTA = new Instagram({
-  clientId: process.env.INSTAGRAM_CLIENT_ID,
-  clientSecret: process.env.INSTAGRAM_CLIENT_ID_SECRET,
-  accessToken: process.env.INSTAGRAM_ACCESS_TOKEN,
-});
-
 const APP = next({ DEV });
 const handle = APP.getRequestHandler();
 
@@ -26,7 +19,7 @@ APP.prepare().then(() => {
     SERVER.use(cookieParser());
 
     SERVER.get('/api/v1/instagram', (req, res)=> {
-        INSTA.get('tags/search', (err, data) => {
+        INSTA.get(`tags/${req.query.q}/media/recent`, { client_id: process.env.INSTAGRAM_CLIENT_ID }, (err, data) => {
             if (err) console.error(err);
             res.setHeader('Content-Type', 'application/json');
             res.send(JSON.stringify({

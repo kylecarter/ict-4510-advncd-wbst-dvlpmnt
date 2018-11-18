@@ -12,7 +12,7 @@
     "dev": "concurrently --kill-others \"npm run django:dev\" \"npm run node:dev\"",
     "start": "concurrently --kill-others \"npm run django:prod\" \"npm run node:prod\"",
     "node:prod": "node --optimize_for_size --max_old_space_size=920 --gc_interval=100 --expose-gc server.js",
-    "django:prod": "gunicorn backend.wsgi:application --bind $DJANGO_HOST:$DJANGO_PORT"
+    "django:prod": "python backend/manage.py runserver $DJANGO_HOST:$DJANGO_PORT"
   },
   "repository": {
     "type": "git",
@@ -40,6 +40,7 @@
     "Bitters": "https://github.com/thoughtbot/bitters/archive/v1.8.0.tar.gz",
     "animate-sass": "^0.8.2",
     "autoprefixer": "^9.1.5",
+    "axios": "^0.18.0",
     "bourbon": "^5.1.0",
     "breakpoint-sass": "^2.7.1",
     "chart.js": "^2.7.3",

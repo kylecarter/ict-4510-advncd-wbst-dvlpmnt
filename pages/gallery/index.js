@@ -35,7 +35,7 @@ export default class About extends React.Component {
             url: '/api/v1/instagram',
             success: self.tweets,
             data: {
-                q: 'nomnom'
+                q: 'omnomnom'
             }
         });
     }
