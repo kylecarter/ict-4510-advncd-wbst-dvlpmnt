@@ -2,18 +2,15 @@ const express = require('express');
 const next = require('next');
 const httpProxy = require('http-proxy');
 const cookieParser = require('cookie-parser');
-const Twit = require('Twitter');
+const Instagram = require('node-instagram').default;
 
 const DEV = process.env.NODE_ENV !== 'production';
-const TWIT = new Twit({
-    consumer_key: process.env.TWITTER_API_KEY,
-    consumer_secret: process.env.TWITTER_API_KEY_SECRET,
-    access_token: process.env.TWITTER_ACCESS_TOKEN,
-    access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET,
-    timeout_ms: 60*1000,
-    strictSSL: true,
-    app_only_auth: true
-});  
+//https://www.instagram.com/oauth/authorize/?client_id=client_id&redirect_uri=https://www.kylecarter.info/&response_type=token&scope=public_content
+const INSTA = new Instagram({
+  clientId: process.env.INSTAGRAM_CLIENT_ID,
+  clientSecret: process.env.INSTAGRAM_CLIENT_ID_SECRET,
+  accessToken: process.env.INSTAGRAM_ACCESS_TOKEN,
+});
 
 const APP = next({ DEV });
 const handle = APP.getRequestHandler();
@@ -28,15 +25,14 @@ APP.prepare().then(() => {
     SERVER.enable('trust proxy');
     SERVER.use(cookieParser());
 
-    SERVER.get('/api/v1/twitter', (req, res)=> {
-        TWIT.get('search/tweets', { q: req.query.q, count: 25 }, function(err, data, response) {
-            if (err) console.error(`Error: ${JSON.stringify(err)}`);
+    SERVER.get('/api/v1/instagram', (req, res)=> {
+        INSTA.get('tags/search', (err, data) => {
+            if (err) console.error(err);
             res.setHeader('Content-Type', 'application/json');
             res.send(JSON.stringify({
-                tweets: data,
-                response: response
+                posted: data
             }));
-          });
+        });
     });
 
     SERVER.get('/api/v1/:api', (req, res)=> {

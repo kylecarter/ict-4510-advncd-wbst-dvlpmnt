@@ -32,12 +32,11 @@ export default class About extends React.Component {
         const self = this;
         $.get({
             dataType: 'json',
-            url: '/api/v1/twitter',
+            url: '/api/v1/instagram',
             success: self.tweets,
             data: {
-                q: '%23nomnom filter:images',
-                result_type: 'recent'
-            },
+                q: 'nomnom'
+            }
         });
     }
 
