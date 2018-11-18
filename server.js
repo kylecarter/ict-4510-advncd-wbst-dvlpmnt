@@ -13,10 +13,7 @@ const TWIT = new Twit({
     timeout_ms: 60*1000,
     strictSSL: true,
     app_only_auth: true
-});
-
-console.log(process.env.TWITTER_API_KEY);
-  
+});  
 
 const APP = next({ DEV });
 const handle = APP.getRequestHandler();
