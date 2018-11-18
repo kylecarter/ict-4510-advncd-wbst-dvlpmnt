@@ -7,6 +7,8 @@
     +container
 
 .title
+    @extend %h1
+
     font-family: 'Courgette', cursive
     font-weight: 400
 
@@ -23,6 +25,11 @@
 .unstyled
     color: inherit
     display: block
+    margin-bottom: emify(6px, $measure: 'rem')
+
+    .fas
+        display: inline-block
+        margin-right: emify(6px, $measure: 'rem')
 
     &:hover,
     &:focus,
@@ -31,12 +38,22 @@
     
 address
     font-style: normal
+    margin-bottom: emify(6px, $measure: 'rem')
+
+    .fas
+        display: inline-block
+        margin-right: emify(6px, $measure: 'rem')
 
     .unstyled
         display: inline
     
-    + time
-        display: block
+time
+    display: block
+    margin-bottom: emify(6px, $measure: 'rem')
+
+    .fas
+        display: inline-block
+        margin-right: emify(6px, $measure: 'rem')
 
 .responsiveEmbed
     width: 100%

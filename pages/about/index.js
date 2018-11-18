@@ -42,10 +42,8 @@ export default class About extends React.Component {
                         <h2>Our Location</h2>
                         <p>We are located on the idyllic University of Denver campus in the heart of Denver Colorado.</p>
                         <address><a href="https://goo.gl/maps/aK8gXbdydM62" className={styles.unstyled} target="_blank" rel="nofollow">
-                            <span className="fas fa-map-marker-alt" role="icon" aria-hidden="true"></span> Chocobo Caf&eacute;<br />
-                            Driscoll Center North<br />
-                            2055 E. Evans Ave.<br />
-                            Denver, Colorado 80208
+                            <span className={['fas', 'fa-map-marker-alt', styles.fas].join(' ')} role="icon" aria-hidden="true"></span>
+                            Chocobo Caf&eacute; 2055 E. Evans Ave. Denver, Colorado 80208
                         </a></address>
                         <time><span className="far fa-clock" role="icon" aria-hidden="true"></span> Open Sun. - Sat. 7 a.m. to 9 p.m.</time>
                         <a href="tel:303-871-3111" className={styles.unstyled} target="_blank" rel="nofollow"><span className="fas fa-phone" role="icon" aria-hidden="true"></span> 303-871-3111</a>

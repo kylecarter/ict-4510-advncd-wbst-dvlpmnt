@@ -146,7 +146,7 @@ typings/
 
 # dotenv environment variables file
 .env
-env.bat
+.env.*
 
 # next.js build output
 .next

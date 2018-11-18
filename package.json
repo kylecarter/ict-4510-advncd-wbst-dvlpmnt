@@ -9,8 +9,9 @@
     "heroku-postbuild": "next build",
     "dev": "concurrently --kill-others \"npm run django:dev\" \"npm run node:dev\"",
     "node:dev": "npm run build && node ./server.js",
+    "node:prod": "node --optimize_for_size --max_old_space_size=920 --gc_interval=100 --expose-gc server.js",
     "django:dev": "python backend/manage.py runserver",
-    "start": "concurrently --kill-others \"npm run django:prod\" \"node --optimize_for_size --max_old_space_size=920 --gc_interval=100 --expose-gc server.js\"",
+    "start": "concurrently --kill-others \"npm run django:prod\" \"npm run node:prod\"",
     "django:prod": "env PYTHONPATH=$PYTHONPATH:$PWD/backend gunicorn backend.wsgi:application --bind $DJANGO_HOST:$DJANGO_PORT"
   },
   "repository": {
@@ -53,6 +54,8 @@
     "react": "^16.5.1",
     "react-dom": "^16.5.1",
     "susy": "^3.0.5",
+    "twit": "^2.2.11",
+    "twitter": "^1.7.1",
     "underscore": "^1.9.1"
   }
 }

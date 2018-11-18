@@ -7,6 +7,7 @@
 
     &Container
         +container
+        align-items: center
 
 .listMenu
     @extend %list-unstyled
@@ -54,17 +55,16 @@
         +breakpoint($screen-tablet-up)
             margin: 0 emify( 8px )
             display: inline-block
+            vertical-align: middle
 
 .branding
-    float: left
     color: inherit
-    max-width: 150px
+    float: left
     vertical-align: middle
 
-    img
-        height: auto
-        max-height: 30px
-        width: 100%
+    img[src$=".svg"]
+        height: 30px
+        width: auto
 
 .bars
     float: right

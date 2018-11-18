@@ -2,3 +2,22 @@
 
 .content
     padding-top: emify(42px, $measure: 'rem')
+
+.headerContainer
+    +container
+
+.h1
+    @extend %h1
+
+    font-family: 'Courgette', cursive
+    font-weight: 400
+    margin-bottom: emify(6px, $measure: 'rem')
+
+.grid
+    +container
+
+    border-radius: $border-radius-base
+    border: thin solid $border-color
+    background-color: $white
+    margin-bottom: emify(42px, $measure: 'rem')
+    padding: emify( 10px, $measure: 'rem' )
