@@ -19,8 +19,10 @@ from django.urls import path
 # Custom
 from . import views
 from restaurant.views import Menu
+from feedback.views import HandleContactForm
 
 urlpatterns = [
     path( 'verify/', views.verify, name='verify' ),
     path( 'menu/', Menu.as_view() ),
+    path( 'contact/', HandleContactForm.as_view())
 ]

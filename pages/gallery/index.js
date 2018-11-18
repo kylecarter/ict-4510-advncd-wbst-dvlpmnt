@@ -16,11 +16,6 @@ const META = {
     description: 'Check out the conversation about Chocobo Cafe on Twitter.',
     keywords: 'html, css, js, react, nextjs'
 }
-const _cookieify = cookie => {
-    let obj = new Object();
-    cookie.split(';').forEach(data => obj[data.split('=')[0]] = data.split('=')[1]);
-    return obj;
-};
 
 export default class About extends React.Component {
     constructor(props) {
@@ -35,7 +30,6 @@ export default class About extends React.Component {
 
     componentDidMount() {
         const self = this;
-
         $.get({
             dataType: 'json',
             url: '/api/v1/twitter',
