@@ -27,6 +27,7 @@
 
         .navOpen &
             top: 0
+            z-index: 100002
 
     +breakpoint($screen-tablet-up)
         font-size: emify( 14px )
@@ -78,7 +79,7 @@
         +position(fixed, 1rem 1rem null null)
         font-size: emify(20px, $measure: 'rem')
         display: block
-        z-index: 10001
+        z-index: 100003
         
         &:before
             content: '\f00d'

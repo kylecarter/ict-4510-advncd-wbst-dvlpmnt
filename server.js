@@ -22,7 +22,7 @@ APP.prepare().then(() => {
         axios.get(`https://www.reddit.com/r/${req.query.q}/new.json?sort=new`).then( response => {
             res.setHeader('Content-Type', 'application/json');
             res.send(JSON.stringify({
-                posts: response.data.children
+                posts: response.data.data.children
             }));
         }).catch( (error)=> console.error(error));
     });

@@ -15,9 +15,96 @@
 
 .grid
     +container
+    margin-bottom: emify(42px, $measure: 'rem')
+
+.gallery
+    @extend %list-inline
 
     border-radius: $border-radius-base
     border: thin solid $border-color
     background-color: $white
-    margin-bottom: emify(42px, $measure: 'rem')
-    padding: emify( 10px, $measure: 'rem' )
+    padding: emify(10px, $measure: 'rem')
+
+    > li
+        padding: 0 emify(10px, $measure: 'rem')
+
+        +breakpoint($screen-phablet-down)
+            width: 48%
+
+.dialog
+    +position(fixed, -100% null null 0)
+    +size(100%)
+    +size(100vw, 100vh)
+
+    color: $white
+    padding-top: emify(10px, $measure: 'rem')
+    z-index: 10001
+    transition: top .15s ease-in-out
+
+    &Open
+        top: 0
+
+    &Container
+        +container
+
+        margin-top: emify(10px, $measure: 'rem')
+        position: relative
+    
+.close
+    @extend %btn-plain
+    font-size: 1.5rem
+
+    +breakpoint($screen-tablet-up)
+        +position(absolute, 0 0 null null)
+
+    &::before
+        text-align: right
+        z-index: 2
+        position: relative
+
+        +breakpoint($screen-tablet-up)
+            +position(absolute, 0 0 null null)
+
+    .dialogOpen &::after
+        +position(fixed, 0 null null 0)
+        +size(100%)
+        +size(100vw, 100vh)
+
+        background-color: rgba($black, 0.8)
+        content: ''
+        z-index: 1
+
+.responsiveEmbed
+    +position(relative, null null null null)
+    background:
+        repeat: no-repeat
+        size: cover
+        position: center
+        color: transparent
+    border-radius: emify(3px, $measure: 'rem')
+    max-width: 600px
+    margin: 0 auto
+    overflow: hidden
+    padding-bottom: 42%
+    z-index: 2
+
+    +breakpoint($screen-phablet-down)
+        padding-bottom: 60%
+
+    &Caption
+        +position(absolute, null null 0 0)
+
+        background-color: rgba($black, 0.8)
+        padding: emify(10px, $measure: 'rem')
+        width: 100%
+
+.h2
+    color: inherit
+    display: inline-block
+    font-family: $font-family-base
+    font-size: emify(18px)
+    font-weight: 400
+    margin-right: emify(6px, $measure: 'rem')
+
+.reddit
+    color: $reddit

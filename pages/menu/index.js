@@ -53,14 +53,12 @@ export default class About extends React.Component {
         if (!window.localStorage.getItem('menu') || window.localStorage.getItem('menu') === ''
             || !window.localStorage.getItem('menu_age')
             || Date.now() > parseInt(window.localStorage.getItem('menu_age'))) {
-            console.log('refresh');
             $.get({
                 url: '/api/v1/menu',
                 dataType: 'json',
                 success: self.storeify
             });
         } else {
-            console.log('cache');
             self.menuify(window.localStorage.getItem('menu'));
         }
     }
