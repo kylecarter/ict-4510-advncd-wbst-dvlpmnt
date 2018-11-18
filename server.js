@@ -28,15 +28,15 @@ APP.prepare().then(() => {
     });
 
     SERVER.get('/api/v1/:api', (req, res)=> {
-        return PROXY.web(req, res, {target: (req.secure ? 'https://' : 'http://') + process.env.DJANGO_HOST + ':' + process.env.DJANGO_PORT});
+        return PROXY.web(req, res, {target: 'http://' + process.env.DJANGO_HOST + ':' + process.env.DJANGO_PORT});
     });
 
     SERVER.post('/api/v1/:api', (req, res)=> {
-        return PROXY.web(req, res, {target: (req.secure ? 'https://' : 'http://') + process.env.DJANGO_HOST + ':' + process.env.DJANGO_PORT});
+        return PROXY.web(req, res, {target: 'http://' + process.env.DJANGO_HOST + ':' + process.env.DJANGO_PORT});
     });
 
     SERVER.get('/admin*', (req, res)=> {
-        return PROXY.web(req, res, {target: (req.secure ? 'https://' : 'http://') + process.env.DJANGO_HOST + ':' + process.env.DJANGO_PORT});
+        return PROXY.web(req, res, {target: 'http://' + process.env.DJANGO_HOST + ':' + process.env.DJANGO_PORT});
     });
 
     SERVER.get('/gallery', (req, res)=> {
