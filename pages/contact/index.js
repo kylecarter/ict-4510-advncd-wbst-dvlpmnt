@@ -5,14 +5,14 @@ import React from 'react'
 
 // Components
 import Page from '../components/Page'
-import {Textarea, Textfield} from '../components/Form'
+import {Button, Textarea, Textfield} from '../components/Form'
 
 // Styles
 import styles from "./styles.sass"
 
 const META = {
-    title: '',
-    description: '',
+    title: 'Contact Us',
+    description: 'Use the form below to let us know what your experiences with our restaurant are like.',
     keywords: 'html, css, js, react, nextjs'
 }
 
@@ -45,7 +45,7 @@ export default class About extends React.Component {
                     <h1 className={styles.h1}>Tell us about your experience</h1>
                     <p>Use the form below to let us know what your experiences with our restaurant are like.</p>
                 </header>
-                <form method="post" id="contact-form" className={styles.form} action="">
+                <div className={styles.formWrapper}><form method="post" id="contact-form" className={styles.form} action="">
                     <Textfield label='Full Name' label_display='visible' name='contact' attributes={{
                         type: 'text',
                         required: 'required',
@@ -64,14 +64,14 @@ export default class About extends React.Component {
                     <Textarea label="Message" label_display="visible" name='message' attributes={{
                         required: 'required',
                         placeholder: 'Your message',
-                        className: [styles.formTextfield].join(' ')
+                        className: [styles.formTextarea].join(' ')
                     }} />
                     <Button presentation='btnPrimary' attributes={{
                         type: 'submit',
                         value: 'Submit',
                         form: 'contact-form'
                     }} />
-                </form>
+                </form></div>
             </article></main>
         </Page>);
     }
